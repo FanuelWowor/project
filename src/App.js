@@ -1,9 +1,10 @@
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import Login from './Login.js';
-import Register from './Register.js';
-import Dashboard from './Dashboard.js';
-import About from './About.js';
-import NavBar from './NavBar.js';
+import Login from './components/pages/Login';
+import Register from './components/pages/Register';
+import Dashboard from './components/pages/Dashboard';
+import About from './components/pages/About';
+import Tugas from './components/pages/Update';
+import NavBar from './components/atoms/NavBar';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
             </Route>
             <Route exact path="/About">
               <About />
+            </Route>
+            <Route exact path="/Tugas">
+              <Tugas />
             </Route>
           </Switch>
         </div>
