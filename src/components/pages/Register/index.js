@@ -9,13 +9,15 @@ const Register = () => {
     const [phoneNumber, setPhoneNumber] = useState('')
     const [address, setAddress] = useState('')
     const [schoolOrigin, setSchoolorigin] = useState('')
-    
+    const [chooseMajor, setChoosemajor] = useState ('')
+
     const resetForm = () => {
       setName ("");
       setEmail ("");
       setPhoneNumber ("");
       setAddress ("");
       setSchoolorigin ("");
+      setChoosemajor ("");
     }
 
     const onSubmit = () => {
@@ -25,6 +27,7 @@ const Register = () => {
         phomeNumber: phoneNumber,
         address: address,
         schoolOrigin: schoolOrigin,
+        chooseMajor: chooseMajor,
       }
       firebase.database().ref("Maba").push(data)
       resetForm()
@@ -36,7 +39,7 @@ const Register = () => {
         style={{
           backgroundImage: `url("http://www.techandall.com/wp-content/uploads/2013/10/techandall_wallpaper_1.jpg")`,
           backgroundSize: "cover",
-          height: "100vh",
+          height: "150vh",
           color: "black",
         }}> 
     <br/><img src="https://lh3.googleusercontent.com/proxy/Z3ebYHcElQTPR2-Q7E44FE3Vu5T0SfeKpyxb_kjBi2McZRkoN2X5OpL1suqTsGO_faiqF6busamRMT4AeAcDrRusklOPcf9eZ-Hv7d8q3Ymy1u565wXtcgFN7ckggLBtSIG-8BH6i8L-aypsjX9kgkc" alt="" height="80px"/>
@@ -53,6 +56,7 @@ const Register = () => {
       <Inputs placeholder="Phone Number" value ={phoneNumber} onChange={(e)=>setPhoneNumber(e.target.value)}/>
       <Inputs placeholder="Address" value ={address} onChange={(e)=>setAddress(e.target.value)}/>
       <Inputs placeholder="School Origin" value ={schoolOrigin} onChange={(e)=>setSchoolorigin(e.target.value)}/>
+      <Inputs placeholder="The Major You Will Choose" value ={chooseMajor} onChange={(e)=>setChoosemajor(e.target.value)}/>
       <br/>
       <Button type="button" onClick={onSubmit} className="btn btn-primary btn-customized">Submit</Button>
       </Form>
